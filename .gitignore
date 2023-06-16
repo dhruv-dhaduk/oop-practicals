@@ -1,4 +1,9 @@
 *.*
 !*.java
+
 !.gitignore
 !*.md
+
+!*.html
+!*.css
+!*.js

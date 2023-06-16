@@ -12,6 +12,8 @@ public class P2_2
         System.out.print("Enter String 2 : ");
         String s2 = sc.nextLine();
 
+        sc.close();
+
         String prefix = s1.substring(0,  commonPrefixIndex(s1, s2));
 
         System.out.println();

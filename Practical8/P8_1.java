@@ -47,6 +47,9 @@ public class P8_1
 
         out.flush();
 
+        in.close();
+        out.close();
+
         System.out.println("See your output in 'output.txt' file in current directory.");
     }
 }

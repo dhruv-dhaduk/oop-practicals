@@ -1,4 +1,4 @@
-public class Temp
+public class P8_2
 {
     public static void main(String[] args)
     {

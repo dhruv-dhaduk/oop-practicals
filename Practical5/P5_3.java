@@ -11,6 +11,8 @@ public class P5_3
         r1 = sc.nextDouble();
         r2 = sc.nextDouble();
 
+        sc.close();
+
         ComparableCircle c1 = new ComparableCircle(r1);
         ComparableCircle c2 = new ComparableCircle(r2);
 

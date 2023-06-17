@@ -2,6 +2,68 @@ public class P7_2
 {
     public static void main(String[] args)
     {
-        System.out.println("Working on it . . . . . . . . . ");
+        int threads = 20;
+
+        int times = 3;
+        
+        String message = "Hello World!";
+
+        Thread threadList[] = new Thread[threads];
+
+        for (int i = 0; i < threads; i++)
+        {
+            threadList[i] = new Thread(new Printer(message, times));
+        }
+
+        for (int i = 0; i < threads; i++)
+        {
+            threadList[i].start();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                continue;
+            }
+        }
+
+        for (int i = 0; i < threads; i++)
+        {
+            try {
+                threadList[i].join();
+            } catch (InterruptedException e) {
+                continue;
+            }
+        }
+    }
+}
+
+class Printer implements Runnable
+{
+    private static int totalThreads = 0;
+
+    private final int id;
+    private final String message;
+    private final int times;
+
+    Printer(String message, int times)
+    {
+        this.id = totalThreads;
+        totalThreads++;
+
+        this.message = message;
+        this.times = times;
+    }
+
+    @Override
+    public void run()
+    {
+        for (int i = 0; i < times; i++)
+        {
+            System.out.println("Thread #" + this.id + "(" + (i+1) + ") : " + this.message);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                continue;
+            }
+        }
     }
 }
